@@ -3,17 +3,20 @@ require "kinukake/version"
 require "open3"
 
 module Kinukake
-    def run (command, *params)
+  def run (command, *params)
     
     params.each do | param |
       command = command + ' ' + param.to_s    
     end 
     
-
+    res
+    
     Open3.popen3(command) {|i, o, e, t|
         i.close
-        self.set_result(o.read)
+        res = o.read
     }
+    
+    return res
   end
 
 end
