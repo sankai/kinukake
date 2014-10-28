@@ -9,12 +9,12 @@ module Kinukake
       command = command + ' ' + param.to_s    
     end 
     
-    res
+    res = null
     
     Open3.popen3(command) {|i, o, e, t|
-        i.close
-        res = o.read
-    }
+      i.close
+      res = o.read
+      }
     
     return res
   end
