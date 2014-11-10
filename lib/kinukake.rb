@@ -6,7 +6,7 @@ module Kinukake
   def run (command, *params)
     
     params.each do | param |
-      command = command + ' ' + param.to_s    
+      command = 'SHELL/' + command + ' ' + param.to_s    
     end 
     
     res = nil
